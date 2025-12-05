@@ -78,12 +78,13 @@ optional = true
 version = "0.10.2"
 optional = true
 
-serde = { workspace = true }
-
-serde_derive = { workspace = true }
+[dependencies]
+serde = { workspace = true, optional = true }
+serde_derive = { workspace = true, optional = true }
 
 [features]
 default = ["std", "v4", "paserk"]
+serde = ["dep:serde", "dep:serde_derive"]
 
 std = ["serde_json", "time", "regex"]
 v2 = ["orion", "ed25519-compact"]
